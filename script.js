@@ -343,6 +343,35 @@ document.getElementById('faqModal')?.addEventListener('click', function(e) {
     }
 });
 
+// ===== LEFT INFO BUTTON =====
+const leftInfoBtn = document.getElementById('leftInfoBtn');
+let isExpanded = false;
+
+if (leftInfoBtn) {
+    leftInfoBtn.addEventListener('click', function(e) {
+        // Não fechar se clicar no link do telefone
+        if (e.target.tagName === 'A') {
+            return;
+        }
+        
+        isExpanded = !isExpanded;
+        
+        if (isExpanded) {
+            leftInfoBtn.classList.add('expanded');
+        } else {
+            leftInfoBtn.classList.remove('expanded');
+        }
+    });
+    
+    // Fechar ao clicar fora
+    document.addEventListener('click', function(e) {
+        if (!leftInfoBtn.contains(e.target) && isExpanded) {
+            leftInfoBtn.classList.remove('expanded');
+            isExpanded = false;
+        }
+    });
+}
+
 // ===== FAB (Floating Action Button) =====
 function toggleFAB() {
     const fabMain = document.querySelector('.fab-main');

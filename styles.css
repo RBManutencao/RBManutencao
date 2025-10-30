@@ -1283,17 +1283,36 @@ section:not(.hero)::before {
 /* Services Grid */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
 }
 
 .service-card {
     background: var(--bg-card);
     backdrop-filter: blur(10px);
-    padding: 40px;
+    padding: 25px;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s;
+}
+
+@media (min-width: 1024px) {
+    .service-card {
+        padding: 20px;
+    }
 }
 
 .service-card:hover {
@@ -1303,18 +1322,40 @@ section:not(.hero)::before {
 }
 
 .service-icon {
-    font-size: 60px;
-    margin-bottom: 20px;
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 1024px) {
+    .service-icon {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
 }
 
 .service-title {
-    font-size: 26px;
-    margin-bottom: 15px;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+@media (min-width: 1024px) {
+    .service-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
 }
 
 .service-description {
     color: var(--text-secondary);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+@media (min-width: 1024px) {
+    .service-description {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
 }
 
 .service-list {
@@ -1323,10 +1364,11 @@ section:not(.hero)::before {
 }
 
 .service-list li {
-    padding: 8px 0;
+    padding: 6px 0;
     padding-left: 25px;
     position: relative;
     color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
 .service-list li:before {
@@ -1882,15 +1924,15 @@ section:not(.hero)::before {
     transform: translateY(-50%);
     background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
     border: none;
-    padding: 16px 24px;
-    border-radius: 30px 0 0 30px;
+    padding: 18px 20px;
+    border-radius: 25px 0 0 25px;
     cursor: pointer;
     z-index: 999;
-    box-shadow: -4px 0 20px rgba(255, 107, 53, 0.4), 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: -4px 0 20px rgba(255, 107, 53, 0.5);
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
     overflow: hidden;
 }
 
@@ -1911,23 +1953,15 @@ section:not(.hero)::before {
 
 .faq-btn:hover {
     transform: translateY(-50%) translateX(-10px) scale(1.05);
-    box-shadow: -6px 0 30px rgba(255, 107, 53, 0.6), 0 6px 25px rgba(0, 0, 0, 0.4);
+    box-shadow: -6px 0 30px rgba(255, 107, 53, 0.7);
 }
 
-.faq-text {
-    font-size: 16px;
+.faq-icon {
+    font-size: 32px;
     font-weight: 700;
     color: white;
-    letter-spacing: 1px;
-    text-transform: uppercase;
     position: relative;
     z-index: 1;
-}
-
-.faq-text::before {
-    content: '❓';
-    margin-right: 8px;
-    font-size: 20px;
     animation: bounce 2s ease-in-out infinite;
 }
 
@@ -2236,20 +2270,18 @@ section:not(.hero)::before {
 
     /* Ajustes do botão FAQ para mobile */
     .faq-btn {
-        padding: 6px 8px;
-        border-radius: 12px 0 0 12px;
+        padding: 15px 18px;
+        border-radius: 20px 0 0 20px;
+        right: 0;
         top: 45%;
-        gap: 4px;
     }
 
-    .faq-text {
-        font-size: 9px;
-        letter-spacing: 0.2px;
-        font-weight: 600;
+    .faq-icon {
+        font-size: 26px;
     }
 
     .faq-btn:hover {
-        transform: translateY(-50%) translateX(-3px) scale(1.01);
+        transform: translateY(-50%) translateX(-8px) scale(1.03);
     }
 
     .steps {
@@ -2322,6 +2354,269 @@ section:not(.hero)::before {
     }
 }
 
+/* Left Side Info Button */
+.left-info-btn {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    background: transparent;
+    color: white;
+    padding: 0;
+    border-radius: 50%;
+    z-index: 999;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    overflow: visible;
+    width: 70px;
+    height: 70px;
+    animation: floatButton 3s ease-in-out infinite;
+}
+
+.left-info-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: width 0.6s, height 0.6s;
+}
+
+.left-info-btn:hover::before {
+    width: 100px;
+    height: 100px;
+}
+
+@keyframes floatButton {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.left-info-btn:hover {
+    transform: translateY(-5px) scale(1.08);
+}
+
+.left-info-btn.expanded {
+    width: 320px;
+    height: auto;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
+    animation: expandBounce 0.5s ease-out, floatButton 3s ease-in-out infinite;
+}
+
+@keyframes expandBounce {
+    0% {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+    60% {
+        width: 330px;
+    }
+    80% {
+        width: 315px;
+    }
+    100% {
+        width: 320px;
+        border-radius: 25px;
+    }
+}
+
+.left-info-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+}
+
+.left-info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-avatar-container {
+    animation: pulse 2s infinite, rotate 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.left-info-icon svg {
+    display: block;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes rotate {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(-10deg) scale(1.1);
+    }
+    75% {
+        transform: rotate(10deg) scale(1.1);
+    }
+}
+
+.left-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+    max-width: 0;
+    overflow: hidden;
+}
+
+.left-info-btn.expanded .left-info-text {
+    opacity: 1;
+    transform: translateX(0);
+    max-width: 200px;
+    transition: all 0.4s ease 0.2s;
+}
+
+.left-info-text strong {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+}
+
+.left-info-text span {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Floating Question Marks */
+.floating-questions {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.question {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(255, 107, 53, 0.6);
+    filter: blur(1.5px);
+    animation: floatAround 4s ease-in-out infinite;
+}
+
+.question.q1 {
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.question.q2 {
+    top: 10px;
+    right: -25px;
+    animation-delay: 0.8s;
+}
+
+.question.q3 {
+    bottom: 10px;
+    right: -20px;
+    animation-delay: 1.6s;
+}
+
+.question.q4 {
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 2.4s;
+}
+
+.question.q5 {
+    top: 15px;
+    left: -25px;
+    animation-delay: 3.2s;
+}
+
+@keyframes floatAround {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.4;
+    }
+    25% {
+        transform: translate(5px, -8px) scale(1.1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(-3px, -5px) scale(0.9);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translate(-5px, 8px) scale(1.05);
+        opacity: 0.6;
+    }
+}
+
+.left-info-btn.expanded .floating-questions {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Mobile adjustments for left info button */
+@media (max-width: 768px) {
+    .left-info-btn {
+        width: 60px;
+        height: 60px;
+        left: 15px;
+        bottom: 15px;
+    }
+    
+    .btn-avatar-container svg {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .left-info-btn.expanded {
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    .floating-questions {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .question {
+        font-size: 18px;
+    }
+}
+
 /* Media query para telas muito pequenas */
 @media (max-width: 480px) {
     .hero {
@@ -2348,15 +2643,13 @@ section:not(.hero)::before {
     }
 
     .faq-btn {
-        padding: 5px 7px;
-        border-radius: 10px 0 0 10px;
-        gap: 3px;
+        padding: 12px 15px;
+        border-radius: 18px 0 0 18px;
+        right: 0;
     }
 
-    .faq-text {
-        font-size: 8px;
-        letter-spacing: 0.1px;
-        font-weight: 600;
+    .faq-icon {
+        font-size: 22px;
     }
 
     .hero-stats {
