@@ -872,7 +872,7 @@
                 <div style="margin: 20px 0; padding: 15px; background: rgba(255, 215, 0, 0.1); border-left: 4px solid var(--accent); border-radius: 8px;">
                     <p style="margin: 0; font-size: 1rem; color: var(--text);"><strong>✅ Serviço com garantia e nota fiscal</strong></p>
                 </div>
-                <a href="https://wa.me/5521991696953?text=%E2%95%94%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%97%0A%20%20%20%F0%9F%94%A7%20*OL%C3%81!*%20%F0%9F%91%8B%0A%E2%95%9A%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%9D%0A%0AVi%20seu%20site%20e%20gostaria%20de%20solicitar%20um%20*or%C3%A7amento*!%20%E2%9A%A1%0A%0A%E2%94%8C%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%90%0A%E2%94%82%20%F0%9F%93%8B%20*O%20QUE%20PRECISO%3A*%20%E2%94%82%0A%E2%94%94%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%98%0A%E2%9C%85%20Manuten%C3%A7%C3%A3o%20El%C3%A9trica%2FHidr%C3%A1ulica%0A%0APoderia%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F%0A%0AObrigado!%20%E2%9C%A8" class="btn btn-primary btn-lg" target="_blank">💬 Falar no WhatsApp</a>
+                <button onclick="openServiceModal()" class="btn btn-primary btn-lg">💬 Falar no WhatsApp</button>
             </div>
 
             <div class="contact-notice">
@@ -1078,6 +1078,41 @@
                     <path d="M7.41 9.41L12 4.83l4.59 4.58L18 8l-6-6-6 6z" fill="currentColor" opacity="0.5"/>
                 </svg>
             </button>
+        </div>
+    </div>
+
+    <!-- Service Selection Modal -->
+    <div class="service-modal" id="serviceModal">
+        <div class="service-modal-content">
+            <div class="service-modal-header">
+                <h2>🔧 Qual serviço você precisa?</h2>
+                <button class="service-modal-close" onclick="closeServiceModal()">✕</button>
+            </div>
+            <div class="service-modal-body">
+                <p class="service-modal-subtitle">Selecione o tipo de serviço para enviar sua mensagem:</p>
+                <div class="service-selection-grid">
+                    <button class="service-selection-card" onclick="sendWhatsAppMessage('Eletricista')">
+                        <div class="service-selection-icon">⚡</div>
+                        <h3>Eletricista</h3>
+                        <p>Instalações e manutenções elétricas</p>
+                    </button>
+                    <button class="service-selection-card" onclick="sendWhatsAppMessage('Bombeiro Hidráulico')">
+                        <div class="service-selection-icon">💧</div>
+                        <h3>Bombeiro Hidráulico</h3>
+                        <p>Sistemas hidráulicos e tubulações</p>
+                    </button>
+                    <button class="service-selection-card" onclick="sendWhatsAppMessage('Técnico em Aquecedores e Boiler')">
+                        <div class="service-selection-icon">🔥</div>
+                        <h3>Técnico em Aquecedores e Boiler</h3>
+                        <p>Instalação e manutenção de aquecedores</p>
+                    </button>
+                    <button class="service-selection-card" onclick="sendWhatsAppMessage('Gasista')">
+                        <div class="service-selection-icon">🔧</div>
+                        <h3>Gasista</h3>
+                        <p>Instalações de gás com segurança</p>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -542,6 +542,54 @@ Obrigado! ✨
     window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
 }
 
+// ===== SERVICE SELECTION MODAL =====
+function openServiceModal() {
+    const modal = document.getElementById('serviceModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeServiceModal() {
+    const modal = document.getElementById('serviceModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function sendWhatsAppMessage(serviceType) {
+    const message = `
+╔═══════════════════════════╗
+   🔧 OLÁ! 👋
+╚═══════════════════════════╝
+
+Vi seu site e gostaria de solicitar um orçamento! ⚡
+
+┌─────────────────────────┐
+│ 📋 O QUE PRECISO: │
+└─────────────────────────┘
+✅ ${serviceType}
+
+Poderia me passar mais informações?
+
+Obrigado! ✨
+    `.trim();
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappNumber = '5521991696953';
+    
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+    
+    // Fechar o modal após enviar
+    closeServiceModal();
+}
+
+// Fechar modal ao clicar fora
+document.addEventListener('click', function(e) {
+    const modal = document.getElementById('serviceModal');
+    if (e.target === modal) {
+        closeServiceModal();
+    }
+});
+
 // ===== INITIALIZE =====
 document.addEventListener('DOMContentLoaded', () => {
     updateStepDisplay();
