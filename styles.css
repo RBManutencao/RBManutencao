@@ -2603,8 +2603,26 @@ section:not(.hero)::before {
     }
     
     .left-info-btn.expanded {
-        width: 90%;
-        max-width: 300px;
+        width: auto;
+        max-width: 240px;
+        padding: 10px 12px;
+    }
+    
+    .left-info-btn.expanded .btn-avatar-container svg {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .left-info-btn.expanded .left-info-text {
+        max-width: 150px;
+    }
+    
+    .left-info-text strong {
+        font-size: 11px;
+    }
+    
+    .left-info-text span {
+        font-size: 10px;
     }
     
     .floating-questions {
