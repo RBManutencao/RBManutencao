@@ -1441,6 +1441,44 @@ section:not(.hero)::before {
     }
 }
 
+/* Desktop - Controle de tamanho máximo */
+@media (min-width: 769px) {
+    .services-banner {
+        max-width: 500px;
+    }
+    
+    .services-banner img {
+        max-width: 450px;
+    }
+    
+    .about-image-container {
+        max-width: 550px;
+    }
+    
+    .about-image {
+        max-width: 500px;
+    }
+}
+
+/* Telas muito grandes */
+@media (min-width: 1400px) {
+    .services-banner {
+        max-width: 550px;
+    }
+    
+    .services-banner img {
+        max-width: 500px;
+    }
+    
+    .about-image-container {
+        max-width: 600px;
+    }
+    
+    .about-image {
+        max-width: 550px;
+    }
+}
+
 /* Services Grid */
 .services-grid {
     display: grid;
