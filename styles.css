@@ -560,6 +560,19 @@ html {
     justify-content: center;
 }
 
+.logo-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(255, 107, 53, 0.3));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 12px rgba(255, 107, 53, 0.5));
+}
+
 .gear-logo {
     animation: gearRotate 8s linear infinite, gearPulse 2s ease-in-out infinite;
     filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.6));
@@ -1219,6 +1232,61 @@ section:not(.hero)::before {
     text-align: center;
 }
 
+/* About Image */
+.about-image-container {
+    margin: 40px auto;
+    max-width: fit-content;
+    background: linear-gradient(145deg, var(--bg-card) 0%, rgba(255, 107, 53, 0.05) 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 107, 53, 0.1);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: cardFloat 6s ease-in-out infinite 1s;
+}
+
+.about-image-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #FF6B35, #F7931E, #FFD700, #FF6B35);
+    background-size: 300% 300%;
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: gradientShift 4s ease infinite;
+}
+
+.about-image-container:hover::before {
+    opacity: 1;
+}
+
+.about-image-container:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(255, 107, 53, 0.4), 0 0 40px rgba(255, 107, 53, 0.2);
+}
+
+.about-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 18px;
+    transition: transform 0.4s ease;
+}
+
+.about-image-container:hover .about-image {
+    transform: scale(1.03);
+}
+
 /* Features Grid */
 .features-grid {
     display: grid;
@@ -1278,6 +1346,99 @@ section:not(.hero)::before {
 
 .benefit-item p {
     color: var(--text-secondary);
+}
+
+/* Services Banner */
+.services-banner {
+    margin: 40px auto;
+    max-width: fit-content;
+    background: linear-gradient(145deg, var(--bg-card) 0%, rgba(255, 107, 53, 0.05) 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 107, 53, 0.1);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.services-banner::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #FF6B35, #F7931E, #FFD700, #FF6B35);
+    background-size: 300% 300%;
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: gradientShift 4s ease infinite;
+}
+
+.services-banner:hover::before {
+    opacity: 1;
+}
+
+.services-banner:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(255, 107, 53, 0.4), 0 0 40px rgba(255, 107, 53, 0.2);
+}
+
+.services-banner img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 18px;
+    transition: transform 0.4s ease;
+}
+
+.services-banner:hover img {
+    transform: scale(1.03);
+}
+
+@keyframes cardFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Responsividade dos Cards */
+@media (max-width: 768px) {
+    .services-banner,
+    .about-image-container {
+        max-width: 95%;
+        margin: 30px auto;
+    }
+    
+    .services-banner img,
+    .about-image img {
+        max-width: 100%;
+        border-radius: 16px;
+    }
+    
+    .services-banner:hover,
+    .about-image-container:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
 }
 
 /* Services Grid */
